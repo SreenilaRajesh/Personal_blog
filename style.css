@@ -757,6 +757,18 @@ section {
     color: var(--text-light);
 }
 
+.contact-item p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.contact-item p a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 .contact-form {
     background: var(--background-dark);
     padding: 2rem;
@@ -786,6 +798,30 @@ section {
 
 .form-group textarea {
     resize: vertical;
+}
+
+.submit {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* Footer */

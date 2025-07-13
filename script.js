@@ -113,7 +113,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Contact form handling
+// Contact form handling with mailto
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -137,8 +137,31 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
+        // Create email body
+        const emailBody = `Hello Sreenila,
+
+You have received a new message from your website contact form:
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}
+
+---
+This message was sent through the contact form on your website.
+
+Please reply to: ${email}`;
+        
+        // Create mailto URL
+        const mailtoURL = `mailto:sreenilarajesh@gmail.com?subject=${encodeURIComponent('Website Contact: ' + subject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Open email client
+        window.open(mailtoURL, '_blank');
+        
+        // Show success message and reset form
+        showNotification('Email client opened! Please send the email from your email application.', 'success');
         contactForm.reset();
     });
 }
